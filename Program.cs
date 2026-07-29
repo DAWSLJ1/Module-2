@@ -12,8 +12,8 @@
                 Console.WriteLine("Which task would you like to visit?");
                 Console.WriteLine();
                 Console.WriteLine("1. Combining Lists");
-                Console.WriteLine("2. ConvertToSeconds");
-                Console.WriteLine("3. Remove Vowels");
+                Console.WriteLine("2. List Operations");
+                Console.WriteLine("3. Book List");
                 Console.WriteLine("4. Array Average");
                 Console.WriteLine("5. Array Operation");
                 Console.WriteLine("6. Word Count");
@@ -34,11 +34,11 @@
                         break;
                     case 2:
                         Console.Clear();
-                        
+                        List();
                         break;
                     case 3:
                         Console.Clear();
-                        
+                        Book();
                         break;
                     case 4:
                         Console.Clear();
@@ -96,7 +96,33 @@
                 Console.WriteLine(lag);
             }
             Console.ReadLine();
-            Main();
+        }
+        public static void List()
+        {
+            bool Is35;
+            List<int> nums = new List<int> { 65, 35, 79, 101, 35 };
+            nums.Insert(1, 25);
+            if (nums.Contains(35))
+            {
+                Is35 = true;
+            }
+            else
+            {
+                Is35 = false;
+            }
+            int firstNumberGreaterThan30 = nums.Find(f => f > 30);
+            nums.Sort();
+            foreach (var i in nums)
+                {
+                    Console.WriteLine(i);
+                }
+            Console.WriteLine(Is35);
+            
+            Console.ReadLine();
+        }
+        public static void Book()
+        {
+
         }
     }
     }
