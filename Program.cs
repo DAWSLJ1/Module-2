@@ -122,6 +122,29 @@
         }
         public static void Book()
         {
+            List<string> bookTitles = new List<string> { "The Great Gatsby", "To Kill a Mockingbird", "1984", "Brave New World" };
+            int totalBooks = bookTitles.Count;
+            bool IsBNW;
+            int Index1984 = bookTitles.IndexOf("1984");
+            foreach (var bookTitle in bookTitles)
+            {
+                Console.WriteLine(bookTitle);
+            }
+            Console.WriteLine();
+            Console.WriteLine($"There are {totalBooks} books");
+            if (bookTitles.Contains("Brave New World"))
+            {
+                IsBNW = true;
+            }
+            else
+            {
+                IsBNW = false;
+            }
+            Console.WriteLine(IsBNW);
+            Console.WriteLine(Index1984);
+            bookTitles.Clear();
+            Console.WriteLine(totalBooks);
+            Console.ReadLine();
 
         }
     }
