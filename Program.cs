@@ -15,9 +15,9 @@
                 Console.WriteLine("2. List Operations");
                 Console.WriteLine("3. Book List");
                 Console.WriteLine("4. Student Grades Dictionary");
-                Console.WriteLine("5. Array Operation");
-                Console.WriteLine("6. Word Count");
-                Console.WriteLine("7. Is Prime");
+                Console.WriteLine("5. Sum of Even Numbers");
+                Console.WriteLine("6. Filter Countries");
+                Console.WriteLine("7. Temperature Analysis");
                 Console.WriteLine("8. Is Palindrome");
                 Console.WriteLine("9. Is Anagram");
                 Console.WriteLine("10. Filter Countries");
@@ -46,15 +46,15 @@
                         break;
                     case 5:
                         Console.Clear();
-
+                        Even();
                         break;
                     case 6:
                         Console.Clear();
-
+                        Countries();
                         break;
                     case 7:
                         Console.Clear();
-
+                        Temp();
                         break;
                     case 8:
                         Console.Clear();
@@ -175,10 +175,41 @@
             {
                 Console.WriteLine($"{entry.Key}: {entry.Value}");
             }
+            double sum = 0;
+            foreach (var grade in studentGrades.Values)
+            {
+                sum += grade;
+            }
+
+            double average = sum / studentGrades.Count;
+            Console.WriteLine();
+            Console.WriteLine($"Average grade: {average:F2}%");
 
 
 
             Console.ReadLine();
+        }
+        public static void Even()
+        {
+            List<int> numbers = new List<int> { 1, 4, 7, 8, 11, 12, 15, 16, 19, 20 };
+             int evenSum = numbers.Where(n => n % 2 == 0).Sum();
+
+            Console.WriteLine($"Sum of even numbers: {evenSum}");
+        }
+        public static void Countries()
+        {
+        List<string> countries = new List<string> { "Argentina", "Australia", "Brazil", "Canada", "Egypt", "France", "India", "Italy", "Mexico", "Netherlands", "South Africa", "United States" };
+            var iCountries = countries.Where(c => c.StartsWith("I", StringComparison.OrdinalIgnoreCase));
+
+        foreach (var country in iCountries)
+        {
+            Console.WriteLine(country);
+        }
+        }
+        public static void Temp()
+        {
+        List<double> temperatures = new List<double> { 24.5, 23.8, 25.3, 22.6, 26.1, 27.5, 21.9 };
+        
         }
     }
 }
