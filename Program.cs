@@ -150,7 +150,7 @@
         public static void Grade()
         {
             Dictionary<string, int> studentGrades = new Dictionary<string, int>
-            { 
+            {
         { "Alice", 92 }, { "Bob", 87 }, { "Charlie", 95 }, { "Diana", 88 }, { "Eve", 91 } };
 
             studentGrades.Add("Frank", 89);
@@ -171,8 +171,16 @@
             }
             Console.WriteLine();
             Console.WriteLine("Grades above 90%");
-                Console.ReadLine();
+            foreach (var entry in studentGrades.Where(i => i.Value > 90))
+            {
+                Console.WriteLine($"{entry.Key}: {entry.Value}");
+            }
+
+
+
+            Console.ReadLine();
         }
-    } 
     }
+}
+    
 
