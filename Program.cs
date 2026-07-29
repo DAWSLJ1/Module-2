@@ -14,7 +14,7 @@
                 Console.WriteLine("1. Combining Lists");
                 Console.WriteLine("2. List Operations");
                 Console.WriteLine("3. Book List");
-                Console.WriteLine("4. Array Average");
+                Console.WriteLine("4. Student Grades Dictionary");
                 Console.WriteLine("5. Array Operation");
                 Console.WriteLine("6. Word Count");
                 Console.WriteLine("7. Is Prime");
@@ -42,35 +42,35 @@
                         break;
                     case 4:
                         Console.Clear();
-                        
+                        Grade();
                         break;
                     case 5:
                         Console.Clear();
-                        
+
                         break;
                     case 6:
                         Console.Clear();
-                        
+
                         break;
                     case 7:
                         Console.Clear();
-                        
+
                         break;
                     case 8:
                         Console.Clear();
-                        
+
                         break;
                     case 9:
                         Console.Clear();
-                      
+
                         break;
                     case 10:
                         Console.Clear();
-                        
+
                         break;
                     case 11:
                         Console.Clear();
-                       
+
                         break;
                     default:
                         Console.Clear();
@@ -113,11 +113,11 @@
             int firstNumberGreaterThan30 = nums.Find(f => f > 30);
             nums.Sort();
             foreach (var i in nums)
-                {
-                    Console.WriteLine(i);
-                }
+            {
+                Console.WriteLine(i);
+            }
             Console.WriteLine(Is35);
-            
+
             Console.ReadLine();
         }
         public static void Book()
@@ -147,6 +147,32 @@
             Console.ReadLine();
 
         }
-    }
+        public static void Grade()
+        {
+            Dictionary<string, int> studentGrades = new Dictionary<string, int>
+            { 
+        { "Alice", 92 }, { "Bob", 87 }, { "Charlie", 95 }, { "Diana", 88 }, { "Eve", 91 } };
+
+            studentGrades.Add("Frank", 89);
+            studentGrades["Bob"] = 90;
+            bool hasAlice = studentGrades.ContainsKey("Alice");
+            foreach (var entry in studentGrades)
+            {
+                Console.WriteLine($"{entry.Key}: {entry.Value}");
+            }
+            Console.WriteLine(hasAlice);
+            if (studentGrades.TryGetValue("Grace", out int grace))
+            {
+                Console.WriteLine($"Grace's score: {grace}");
+            }
+            else
+            {
+                Console.WriteLine("No value has shown up for 'Grace'");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Grades above 90%");
+                Console.ReadLine();
+        }
+    } 
     }
 
