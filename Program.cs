@@ -18,8 +18,8 @@
                 Console.WriteLine("5. Sum of Even Numbers");
                 Console.WriteLine("6. Filter Countries");
                 Console.WriteLine("7. Temperature Analysis");
-                Console.WriteLine("8. Is Palindrome");
-                Console.WriteLine("9. Is Anagram");
+                Console.WriteLine("8. Exam Scores");
+                Console.WriteLine("9. Word Filter");
                 Console.WriteLine("10. Filter Countries");
                 Console.WriteLine("11. Random Joke");
                 Console.WriteLine("0. Exit");
@@ -58,11 +58,11 @@
                         break;
                     case 8:
                         Console.Clear();
-
+                        Exam();
                         break;
                     case 9:
                         Console.Clear();
-
+                        Word();
                         break;
                     case 10:
                         Console.Clear();
@@ -183,7 +183,7 @@
 
             double average = sum / studentGrades.Count;
             Console.WriteLine();
-            Console.WriteLine($"Average grade: {average:F2}%");
+            Console.WriteLine($"Average grade: {average}%");
 
 
 
@@ -195,6 +195,7 @@
              int evenSum = numbers.Where(n => n % 2 == 0).Sum();
 
             Console.WriteLine($"Sum of even numbers: {evenSum}");
+            Console.ReadLine();
         }
         public static void Countries()
         {
@@ -205,12 +206,55 @@
         {
             Console.WriteLine(country);
         }
+            Console.ReadLine();
         }
         public static void Temp()
         {
         List<double> temperatures = new List<double> { 24.5, 23.8, 25.3, 22.6, 26.1, 27.5, 21.9 };
-        
+        double average = temperatures.Average();
+        Console.WriteLine($"Average temperature: {average}");
+
+        double max = temperatures.Max();
+        Console.WriteLine($"Highest temperature: {max}");
+
+        List<double> above25 = temperatures.Where(t => t > 25.0).ToList();
+        Console.WriteLine("Temperatures above 25°C:");
+        foreach (var t in above25)
+        {
+            Console.WriteLine($"  {t}");
         }
+            Console.ReadLine();
+        }
+        public static void Exam()
+        {
+        List<int> scores = new List<int> { 78, 89, 92, 65, 70, 85, 92, 78, 93, 80 };
+        int maxScore = scores.Max();
+        Console.WriteLine($"Highest score: {maxScore}");
+
+        List<int> uniqueSorted = scores.Distinct().OrderBy(n => n).ToList();
+        Console.WriteLine("Unique scores (ascending):");
+        foreach (var s in uniqueSorted)
+        {
+            Console.WriteLine($"  {s}");
+        }
+            Console.ReadLine();
+        }
+        public static void Word()
+        {
+        List<string> words = new List<string> { "apple", "banana", "orange", "grape", "kiwi", "pineapple" };
+
+        List<string> containsAEndsE = words
+            .Where(w => w.ToLower().Contains("a") && w.ToLower().EndsWith("e"))
+            .ToList();
+
+        Console.WriteLine("Words containing 'e' and ending with 'e':");
+        Console.WriteLine(string.Join(", ", containsAEndsE));
+
+        string longestWord = words.OrderByDescending(w => w.Length).First();
+        Console.WriteLine($"Longest word: {longestWord}");
+            Console.ReadLine();
+        }
+        
     }
 }
     
